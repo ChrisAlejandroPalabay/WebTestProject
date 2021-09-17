@@ -9,4 +9,8 @@ public class MainController {
     public void Test(){
         System.out.println("Test");
     }
+
+    public String name(){
+        return " AC Palabay";
+    }
 }
