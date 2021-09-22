@@ -2,14 +2,35 @@ package com.Chris.WebTestProject.model;
 
 public class Car {
 
-    public String type;
+    public int id;
+    public String manufacturer;
     public String color;
     public int yearModel;
 
-    public Car (String type, String color, int yearModel) {
-        this.type = type;
+    public Car() {
+
+    }
+
+    public Car (String manufacturer, String color, int yearModel) {
+        this.manufacturer = manufacturer;
         this.color = color;
         this.yearModel = yearModel;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getColor() {

@@ -27,17 +27,16 @@ public class MainController {
     @RequestMapping("/car")
     public ModelAndView carForm(@ModelAttribute Car car, ModelAndView mv) {
         mv.setViewName("carResult");
-        mv.addObject("cars");
+        mv.addObject("car",car);
         return mv;
     }
 
-    @RequestMapping("/list")
-    public Model list(Model mv) {
-        Car[] car = {
-                new Car("toyota", "red", 2030),
-                new Car("Honda", "red", 2030),
-                new Car("Ford", "red", 2030)};
-        mv.addAttribute("ListOfCars",car);
-        return mv;
-    }
+   @RequestMapping("/list")
+    public Model list(Model model){
+        List carlist= List.of(
+                new Car("Ford","White",2000),
+                new Car("Toyota","Black",2013));
+        model.addAttribute("carList",carlist);
+        return model;
+   }
 }
