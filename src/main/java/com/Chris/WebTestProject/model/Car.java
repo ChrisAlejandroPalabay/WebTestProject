@@ -1,21 +1,16 @@
 package com.Chris.WebTestProject.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Car {
 
+    @Id
     public int id;
     public String manufacturer;
     public String color;
     public int yearModel;
-
-    public Car() {
-
-    }
-
-    public Car (String manufacturer, String color, int yearModel) {
-        this.manufacturer = manufacturer;
-        this.color = color;
-        this.yearModel = yearModel;
-    }
 
     public String getManufacturer() {
         return manufacturer;
@@ -49,6 +44,12 @@ public class Car {
         this.yearModel = yearModel;
     }
 
+    @Override
+    public String toString() {
+        return "Car{" +
+                "manufacturer='" + manufacturer + '\'' +
+                '}';
+    }
 }
 
 

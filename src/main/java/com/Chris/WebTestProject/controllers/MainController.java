@@ -20,7 +20,7 @@ public class MainController {
 
     @RequestMapping("/")
     public String homePage() {
-        return "car";
+        return "testTemplates/car";
     }
 
 
@@ -31,12 +31,4 @@ public class MainController {
         return mv;
     }
 
-   @RequestMapping("/list")
-    public Model list(Model model){
-        List carlist= List.of(
-                new Car("Ford","White",2000),
-                new Car("Toyota","Black",2013));
-        model.addAttribute("carList",carlist);
-        return model;
-   }
 }

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create</title>
     <!-- BootStrap link -->
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -11,13 +11,14 @@
 
 </head>
 <body>
-    <tr th:each="cars : ${listOfCars}">
-        <td th:text="${cars.id}"></td>
-        <td th:text="${cars.manufacturer}"></td>
-        <td th:text="${cars.color}"></td>
-        <td th:text="${cars.yearModel}"></td>
-        <br>
-    </tr>
+
+<form action="/create">
+    Manufacturer <input type="text" name="manufacturer"><br>
+    Color <input type="text" name="color"><br>
+    Model Year <input type="text" name="yearModel"><br>
+    ID <input type="text" name="id"><br>
+    <button type="submit" class="btn-primary">Submit</button>
+</form>
 
 
 
