@@ -1,43 +1,28 @@
 package com.Chris.WebTestProject.controllers.car;
 
 
-import com.Chris.WebTestProject.dao.CarRepo;
+import com.Chris.WebTestProject.dao.GetServices;
 import com.Chris.WebTestProject.model.Car;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
+@RequestMapping("/get")
 public class CarController {
 
-    @Autowired
-    CarRepo repo;
+    GetServices services = new GetServices();
 
-    @RequestMapping("/add")
-    public String jpaHome(){
-        return "create";
+    @GetMapping("/list")
+    public List<Car> carList(){
+       return services.carList();
     }
 
-    @RequestMapping("/create")
-    public String add(Car car){
-        repo.save(car);
-        return "create";
+    @GetMapping("/getById/{id}")
+    public List<Car> getById(@PathVariable int id){
+        return services.getCarById(id);
     }
 
-    @RequestMapping("/list2")
-    public ModelAndView data(ModelAndView m){
-        List list = List.of(
-                new Car("toyota","blue",2020),
-                new Car("toyota","blue",2020),
-                new Car("toyota","blue",2020));
-        m.setViewName("list2");
-        m.addObject("list",list);
-        return m;
-    }
 }
