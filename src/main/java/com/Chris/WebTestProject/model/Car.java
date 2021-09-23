@@ -12,6 +12,12 @@ public class Car {
     public String color;
     public int yearModel;
 
+    public Car(String manufacturer, String color, int yearModel) {
+        this.manufacturer = manufacturer;
+        this.color = color;
+        this.yearModel = yearModel;
+    }
+
     public String getManufacturer() {
         return manufacturer;
     }
