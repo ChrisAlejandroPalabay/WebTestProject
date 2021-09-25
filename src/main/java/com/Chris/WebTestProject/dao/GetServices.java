@@ -10,26 +10,34 @@ import java.util.stream.Collectors;
 @Service
 public class GetServices {
 
-    public List<Car> loadCars(){
-        List<Car> carList = new ArrayList<Car>();
-        carList.add(new Car(1,"Toyota","Blue",2020));
-        carList.add(new Car(2,"Honda","Red",2021));
+    private List<Car> loadList(){
+        List<Car> carList = new ArrayList<>();
+        carList.add(new Car(1,"Honda","Blue",2020));
+        carList.add(new Car(1,"Honda","Blue",2020));
         return carList;
     }
 
-    private List<Car> cars = loadCars();
+    private List<Car> carList = loadList();
 
-    public List<Car> getAllCars(){
-        return cars;
+    public List<Car> getList(){
+        return carList;
     }
 
     public List<Car> getById(int id){
-        return getAllCars().stream().filter(car -> car.getId() == id).collect(Collectors.toList());
+        return carList.stream().filter(car -> car.getId() == id).collect(Collectors.toList());
     }
 
+    public String add(Car car){
+        carList.add(car);
+        return "Added Successfully";
+    }
 
-    public String addCar(Car car){
-        cars.add(car);
-        return "Add success!";
+    public String delete(int id){
+        for (Car car : carList){
+            if (car.getId() == id){
+                carList.remove(car);
+            }
+        }
+        return "Deleted Successfully!";
     }
 }

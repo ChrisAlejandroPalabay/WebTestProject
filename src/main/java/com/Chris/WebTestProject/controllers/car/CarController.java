@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
-@RestController
 @RequestMapping("/rest")
+@RestController
 public class CarController {
 
     @Autowired
@@ -20,19 +19,23 @@ public class CarController {
 
     @GetMapping("/list")
     public List<Car> getList(){
-        return services.getAllCars();
+        return services.getList();
     }
 
-    @GetMapping("/getById/{id}")
+    @GetMapping("/getbyid/{id}")
     public List<Car> getById(@PathVariable int id){
-        return services.getById(id);
+       return services.getById(id);
     }
 
     @PostMapping("/add")
-    @ResponseStatus(code = HttpStatus.CREATED)
-    public String addCar(@RequestBody Car car){
-        System.out.println(services.getAllCars());
-        return services.addCar(car);
+    public String add(@RequestBody Car car){
+        return services.add(car);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String delete(@PathVariable int id){
+        return services.delete(id);
     }
 
 }
+
