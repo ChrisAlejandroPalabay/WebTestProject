@@ -12,32 +12,24 @@ public class GetServices {
 
     private List<Car> loadList(){
         List<Car> carList = new ArrayList<>();
-        carList.add(new Car(1,"Honda","Blue",2020));
-        carList.add(new Car(1,"Honda","Blue",2020));
+        carList.add(new Car("Mazda","Gray",2020));
+        carList.add(new Car("Honda","Blue",2021));
+        for (int i=0;i < carList.size();i++){
+            carList.get(i).setId(i);
+        }
         return carList;
     }
 
     private List<Car> carList = loadList();
 
-    public List<Car> getList(){
+    public List<Car> getCarList(){
         return carList;
-    }
-
-    public List<Car> getById(int id){
-        return carList.stream().filter(car -> car.getId() == id).collect(Collectors.toList());
     }
 
     public String add(Car car){
         carList.add(car);
-        return "Added Successfully";
+        return "Add Successful";
     }
 
-    public String delete(int id){
-        for (Car car : carList){
-            if (car.getId() == id){
-                carList.remove(car);
-            }
-        }
-        return "Deleted Successfully!";
-    }
+
 }
