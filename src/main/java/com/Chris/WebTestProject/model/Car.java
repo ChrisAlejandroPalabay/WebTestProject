@@ -1,15 +1,21 @@
 package com.Chris.WebTestProject.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 
+import javax.persistence.*;
+
+@Table(name = "car_table")
 @Entity
 public class Car {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int id;
+
     public String manufacturer;
+
     public String color;
+
+    @Column(name = "year_model")
     public int yearModel;
 
     public Car(String manufacturer, String color, int yearModel) {
